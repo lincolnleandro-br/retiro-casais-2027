@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Retiro de Casais 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Layout: uma coluna central em tons de marfim; faixas alternando marfim e nude, detalhes em champanhe */
+  --ivory: #FBF7F1;
+  --nude: #F1E6DA;
+  --sand: #E3D2C0;
+  --champagne: #B08D62;
+  --ink: #3E332C;
+  --muted: #7A6B60;
+  --rose: #C9A39A;
+  --line: #E6DACD;
+  --white: #FFFDFA;
+  --display: "Cormorant Garamond", "Garamond", "Georgia", serif;
+  --body: "Manrope", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body { margin: 0; background: var(--ivory); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--display); font-weight: 500; line-height: 1.1; margin: 0; text-wrap: balance; color: var(--ink); }
+p { margin: 0; }
+.wrap { width: min(1080px, 100% - 40px); margin-inline: auto; }
+.narrow { max-width: 640px; }
+.eyebrow { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--champagne); font-weight: 600; }
+:focus-visible { outline: 2px solid var(--champagne); outline-offset: 3px; border-radius: 4px; }
+
+/* Header */
+header.top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--ivory) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand-mark { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--sand); display: grid; place-items: center; background: var(--white); flex: none; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+.brand-text strong { font-family: var(--display); font-size: 19px; font-weight: 600; }
+.brand-text span { font-size: 12px; color: var(--muted); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 24px; border-radius: 999px; font: 600 14px/1 var(--body); letter-spacing: .02em; text-decoration: none; cursor: pointer; border: 1px solid transparent; transition: background .2s, color .2s, border-color .2s; }
+.btn-primary { background: var(--ink); color: var(--ivory); }
+.btn-primary:hover { background: #2c241f; }
+.btn-ghost { background: transparent; border-color: var(--sand); color: var(--ink); }
+.btn-ghost:hover { border-color: var(--champagne); }
+.btn-gold { background: var(--champagne); color: var(--white); }
+.btn-gold:hover { background: #9a7a53; }
+.btn-sm { padding: 10px 18px; font-size: 13px; white-space: nowrap; }
+@media (max-width: 520px) { .brand-text span { display: none; } .brand-text strong { font-size: 17px; } .brand-mark { width: 34px; height: 34px; } }
+
+/* Hero */
+.hero { padding: 72px 0 64px; text-align: center; position: relative; overflow: hidden; isolation: isolate; }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: -2; background: url("img/casal.jpg") center 35% / cover no-repeat; }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: radial-gradient(ellipse 60% 70% at 50% 45%, rgba(251,247,241,.90), rgba(251,247,241,.72) 70%),
+              linear-gradient(to bottom, rgba(251,247,241,.35), rgba(251,247,241,0) 30%, rgba(251,247,241,0) 75%, var(--ivory)); }
+.hero .pill { background: color-mix(in srgb, var(--white) 85%, transparent); }
+.hero .wrap { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+.pill { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px; background: var(--white); border: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+.pill i { width: 8px; height: 8px; border-radius: 50%; background: #8FA382; display: block; }
+.hero h1 { font-size: clamp(44px, 8vw, 88px); font-weight: 400; letter-spacing: -.01em; }
+.hero h1 em { font-style: italic; color: var(--champagne); }
+.hero .lead { font-size: 18px; color: #5E5047; max-width: 560px; }
+.braid { width: min(420px, 90%); height: 46px; display: block; }
+.verse { font-family: var(--display); font-style: italic; font-size: 22px; line-height: 1.4; max-width: 600px; color: var(--ink); }
+.verse cite { display: block; margin-top: 8px; font-family: var(--body); font-style: normal; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--champagne); }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 6px; }
+
+/* Facts strip */
+.facts { border-block: 1px solid var(--line); background: var(--white); }
+.facts .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
+.fact { padding: 26px 22px; display: flex; flex-direction: column; gap: 4px; }
+.fact + .fact { border-left: 1px solid var(--line); }
+.fact .k { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--champagne); font-weight: 600; }
+.fact .v { font-family: var(--display); font-size: 24px; font-weight: 500; line-height: 1.2; }
+.fact .s { font-size: 13px; color: var(--muted); }
+@media (max-width: 860px) { .facts .wrap { grid-template-columns: 1fr 1fr; } .fact:nth-child(3) { border-left: 0; } .fact:nth-child(n+3) { border-top: 1px solid var(--line); } }
+@media (max-width: 460px) { .facts .wrap { grid-template-columns: 1fr; } .fact + .fact { border-left: 0; border-top: 1px solid var(--line); } }
+
+section.block { padding: 84px 0; }
+section.alt { background: var(--nude); }
+.section-head { display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px; }
+.section-head h2 { font-size: clamp(34px, 5vw, 50px); }
+.section-head p { color: var(--muted); max-width: 620px; }
+
+
+/* Fotos */
+.photo-band { padding: 40px 0 0; }
+.photo-band figure { margin: 0; position: relative; border-radius: 22px; overflow: hidden; aspect-ratio: 16 / 7; background: var(--sand); }
+.photo-band img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo-band figcaption { position: absolute; left: 14px; bottom: 14px; background: color-mix(in srgb, var(--ivory) 90%, transparent); color: var(--ink); font-size: 12px; font-weight: 600; letter-spacing: .04em; padding: 6px 12px; border-radius: 999px; }
+@media (max-width: 600px) { .photo-band figure { aspect-ratio: 4 / 3; } }
+
+.cats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.cat-card { position: relative; padding: 0; border: 0; border-radius: 18px; overflow: hidden; aspect-ratio: 3 / 4; background: var(--sand); cursor: zoom-in; display: block; width: 100%; text-align: left; color: #fff; }
+.cat-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s; }
+.cat-card:hover img { transform: scale(1.05); }
+.cat-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(30,22,16,.78), rgba(30,22,16,0) 55%); }
+.cat-card .t { position: absolute; left: 16px; right: 16px; bottom: 16px; z-index: 1; display: flex; flex-direction: column; gap: 4px; }
+.cat-card .t b { font-family: var(--display); font-weight: 500; font-size: 24px; line-height: 1.1; }
+.cat-card .t span { font: 600 12px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--sand); }
+@media (max-width: 900px) { .cats { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 600px) { .cats { grid-template-columns: 1fr 1fr; } .cat-card:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 10; } }
+.lightbox { position: fixed; inset: 0; z-index: 50; background: rgba(28, 22, 18, .97); display: grid; grid-template-rows: auto 1fr auto; padding: 14px; color: var(--ivory); }
+.lightbox[hidden] { display: none; }
+.lb-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 13px; letter-spacing: .08em; }
+.lb-top .cat { text-transform: uppercase; color: var(--sand); font-weight: 600; letter-spacing: .18em; }
+.lb-stage { position: relative; display: grid; place-items: center; min-height: 0; }
+.lb-stage img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; user-select: none; }
+.lb-btn { background: rgba(251,247,241,.12); color: var(--ivory); border: 1px solid rgba(251,247,241,.25); border-radius: 999px; width: 48px; height: 48px; font-size: 22px; line-height: 1; cursor: pointer; display: grid; place-items: center; }
+.lb-btn:hover { background: rgba(251,247,241,.24); }
+.lb-prev, .lb-next { position: absolute; top: 50%; transform: translateY(-50%); }
+.lb-prev { left: 6px; } .lb-next { right: 6px; }
+.lb-bottom { text-align: center; padding-top: 12px; display: flex; flex-direction: column; gap: 4px; }
+.lb-bottom .c { font-family: var(--display); font-size: 22px; }
+.lb-bottom .n { font-size: 13px; color: var(--sand); font-variant-numeric: tabular-nums; }
+body.lb-open { overflow: hidden; }
+.hotel-logo { width: 120px; height: auto; display: block; }
+
+/* Sobre / hotel */
+.two { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: start; }
+@media (max-width: 860px) { .two { grid-template-columns: 1fr; gap: 36px; } }
+.prose { display: flex; flex-direction: column; gap: 16px; font-size: 17px; }
+.prose p { max-width: 62ch; }
+.hotel-card { background: var(--white); border: 1px solid var(--line); border-radius: 18px; padding: 30px; display: flex; flex-direction: column; gap: 18px; }
+.hotel-card h3 { font-size: 30px; }
+.hotel-card .addr { font-size: 14px; color: var(--muted); }
+.amenities { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px; font-size: 14px; }
+.amenities li { display: flex; gap: 10px; align-items: baseline; }
+.amenities li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--champagne); flex: none; transform: translateY(-2px); }
+@media (max-width: 460px) { .amenities { grid-template-columns: 1fr; } }
+.coord { margin-top: 8px; padding: 18px 20px; border-left: 2px solid var(--champagne); background: var(--white); border-radius: 0 12px 12px 0; display: flex; flex-direction: column; gap: 6px; font-size: 15px; }
+.rooms { display: flex; gap: 8px; flex-wrap: wrap; }
+.rooms span { font-size: 13px; padding: 6px 12px; border-radius: 999px; background: var(--nude); }
+
+/* Incluso */
+.incl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+@media (max-width: 760px) { .incl { grid-template-columns: 1fr; } }
+.incl-item { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 10px; }
+.incl-item .n { font-family: var(--display); font-size: 40px; line-height: 1; color: var(--champagne); }
+.incl-item h3 { font-size: 26px; }
+.incl-item p { font-size: 15px; color: var(--muted); }
+.notice { margin-top: 24px; display: flex; gap: 14px; align-items: flex-start; padding: 18px 22px; border-radius: 14px; border: 1px dashed var(--rose); background: var(--white); font-size: 15px; }
+.notice strong { color: var(--ink); }
+
+/* Programação */
+.timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: var(--white); }
+.day { padding: 28px; display: flex; flex-direction: column; gap: 10px; }
+.day + .day { border-left: 1px solid var(--line); }
+.day .d { font-family: var(--display); font-size: 52px; line-height: 1; }
+.day .w { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--champagne); font-weight: 600; }
+.day ul { margin: 6px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 15px; }
+.day li b { font-weight: 600; font-variant-numeric: tabular-nums; margin-right: 6px; }
+.day .soon { color: var(--muted); font-style: italic; }
+@media (max-width: 760px) { .timeline { grid-template-columns: 1fr; } .day + .day { border-left: 0; border-top: 1px solid var(--line); } }
+
+/* Valores */
+.price-wrap { display: grid; grid-template-columns: 1fr 1.3fr; gap: 28px; align-items: stretch; }
+@media (max-width: 860px) { .price-wrap { grid-template-columns: 1fr; } }
+.price-main { background: var(--ink); color: var(--ivory); border-radius: 20px; padding: 36px; display: flex; flex-direction: column; gap: 14px; justify-content: center; }
+.price-main .k { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--sand); }
+.price-main .amount { font-family: var(--display); font-size: clamp(56px, 9vw, 80px); line-height: 1; font-variant-numeric: tabular-nums; }
+.price-main .amount small { font-size: .4em; vertical-align: top; margin-right: 4px; }
+.price-main p { color: var(--sand); font-size: 15px; }
+.pay-list { display: flex; flex-direction: column; gap: 14px; }
+.pay { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 22px 24px; display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: center; }
+.pay h3 { font-size: 24px; }
+.pay p { font-size: 14px; color: var(--muted); grid-column: 1; }
+.pay .val { grid-row: 1 / span 2; grid-column: 2; text-align: right; font-family: var(--display); font-size: 28px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pay .val small { display: block; font-family: var(--body); font-size: 12px; color: var(--muted); }
+.pay.featured { border-color: var(--champagne); box-shadow: 0 6px 24px -14px rgba(120, 90, 50, .5); }
+.tag { display: inline-block; font: 600 10px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--white); background: var(--champagne); padding: 5px 8px; border-radius: 4px; margin-left: 8px; vertical-align: middle; }
+@media (max-width: 460px) { .pay { grid-template-columns: 1fr; } .pay .val { grid-row: auto; grid-column: 1; text-align: left; } }
+
+/* Inscrição */
+.form-card { background: var(--white); border: 1px solid var(--line); border-radius: 22px; padding: clamp(22px, 4vw, 44px); display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; }
+@media (max-width: 900px) { .form-card { grid-template-columns: 1fr; } }
+form { display: flex; flex-direction: column; gap: 20px; }
+.step { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--champagne); font-weight: 600; padding-top: 6px; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 560px) { .row { grid-template-columns: 1fr; } }
+.field { display: flex; flex-direction: column; gap: 6px; }
+label, .legend { font-size: 14px; font-weight: 600; }
+.opt { font-weight: 400; color: var(--muted); font-size: 13px; }
+input[type=text], input[type=tel], input[type=email], input[type=date], select, textarea { font: 400 16px/1.4 var(--body); color: var(--ink); background: var(--ivory); border: 1px solid var(--sand); border-radius: 10px; padding: 12px 14px; width: 100%; }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--champagne); box-shadow: 0 0 0 3px color-mix(in srgb, var(--champagne) 22%, transparent); }
+textarea { resize: vertical; min-height: 92px; }
+.counter { font-size: 12px; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+fieldset { border: 0; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.choices { display: grid; gap: 10px; }
+.choice { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border: 1px solid var(--sand); border-radius: 12px; cursor: pointer; background: var(--ivory); font-weight: 400; }
+.choice:has(input:checked) { border-color: var(--champagne); background: color-mix(in srgb, var(--champagne) 8%, var(--white)); }
+.choice input { margin-top: 4px; accent-color: var(--champagne); }
+.choice b { display: block; font-weight: 600; }
+.choice span { font-size: 13px; color: var(--muted); }
+.err { color: #A0453B; font-size: 13px; min-height: 0; }
+.field.invalid input, .field.invalid select { border-color: #C77B70; }
+.agree .err { display: block; font-weight: 400; }
+
+.preview { background: var(--nude); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 14px; align-self: start; position: sticky; top: 90px; }
+.preview h3 { font-size: 24px; }
+.msg { background: var(--white); border-radius: 12px; padding: 16px; font-size: 14px; line-height: 1.55; white-space: pre-wrap; word-break: break-word; border: 1px solid var(--line); min-height: 160px; max-height: 360px; overflow: auto; }
+.actions { display: flex; flex-direction: column; gap: 10px; }
+.actions .btn { width: 100%; }
+.small { font-size: 13px; color: var(--muted); }
+.status { font-size: 13px; color: #5E7A52; min-height: 1em; }
+@media (max-width: 900px) { .preview { position: static; } }
+
+
+.person { display: flex; flex-direction: column; gap: 14px; padding: 18px; border: 1px solid var(--line); border-radius: 14px; background: var(--ivory); }
+.person-title { font-family: var(--display); font-size: 22px; font-weight: 500; }
+.person input, .person select { background: var(--white); }
+.inline-choices { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-end; }
+.inline-choices .choice { flex: 0 0 auto; padding: 10px 16px; }
+.inline-choices .qtd { width: 110px; }
+.agree a { color: var(--champagne); }
+.policy { margin-top: 40px; background: var(--white); border: 1px solid var(--line); border-radius: 20px; padding: clamp(22px, 4vw, 36px); display: flex; flex-direction: column; gap: 20px; }
+.policy h3 { font-size: 30px; }
+.tiers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.tier { border-radius: 14px; padding: 18px; background: var(--ivory); display: flex; flex-direction: column; gap: 6px; border-top: 3px solid var(--sand); }
+.tier .when { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.tier .pct { font-family: var(--display); font-size: 34px; line-height: 1.05; }
+.tier p { font-size: 14px; color: var(--muted); }
+.tier.t4 .pct { font-size: 28px; }
+.tier.t1 { border-top-color: #8FA382; } .tier.t2 { border-top-color: var(--champagne); } .tier.t3 { border-top-color: var(--rose); } .tier.t4 { border-top-color: var(--ink); }
+.policy ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: var(--ink); }
+@media (max-width: 900px) { .tiers { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .tiers { grid-template-columns: 1fr; } }
+
+/* FAQ */
+.faq { display: flex; flex-direction: column; gap: 10px; max-width: 760px; }
+details { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 18px 22px; }
+summary { cursor: pointer; font-family: var(--display); font-size: 22px; font-weight: 500; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; color: var(--champagne); font-family: var(--body); }
+details[open] summary::after { content: "–"; }
+details p { margin-top: 10px; color: var(--muted); font-size: 15px; }
+
+footer { background: var(--ink); color: var(--sand); padding: 56px 0 40px; }
+footer .wrap { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; }
+footer h4 { margin: 0 0 8px; font: 600 12px/1 var(--body); letter-spacing: .2em; text-transform: uppercase; color: var(--champagne); }
+footer p { font-size: 14px; }
+footer .big { font-family: var(--display); font-size: 30px; color: var(--ivory); line-height: 1.15; }
+footer .foot-logo { display: block; margin-bottom: 14px; background: var(--ivory); padding: 10px 14px; border-radius: 10px; box-sizing: content-box; }
+footer .fine { grid-column: 1 / -1; border-top: 1px solid #5a4d44; padding-top: 20px; font-size: 12px; color: #a79687; }
+@media (max-width: 760px) { footer .wrap { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Início">
+      <span class="brand-mark" aria-hidden="true">
+        <img src="data:image/png;base64,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" alt="" width="15" height="26">
+      </span>
+      <span class="brand-text"><strong>Retiro de Casais 2027</strong><span>Igreja Metodista · Distrito de Santa Cruz</span></span>
+    </a>
+    <a class="btn btn-primary btn-sm" href="#inscricao">Fazer inscrição</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <span class="pill"><i></i>Inscrições abertas · vagas limitadas</span>
+    <p class="eyebrow">Retiro de Casais · 10 a 12 de dezembro de 2027</p>
+    <h1>Até que Ele seja<br>o <em>Centro</em></h1>
+    <svg class="braid" id="braid" viewBox="0 0 420 46" aria-hidden="true"></svg>
+    <p class="lead">Quando Cristo está no centro, o amor, a unidade e a paz conduzem o casamento.</p>
+    <blockquote class="verse">“Acima de tudo isto, porém, esteja o amor, que é o vínculo da perfeição. Seja a paz de Cristo o árbitro em vosso coração, à qual, também, fostes chamados em um só corpo; e sede agradecidos.”<cite>Colossenses 3:14-15</cite></blockquote>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#inscricao">Quero me inscrever</a>
+      <a class="btn btn-ghost" href="#valores">Ver valores</a>
+    </div>
+  </div>
+</section>
+
+<div class="facts" aria-label="Resumo do evento">
+  <div class="wrap">
+    <div class="fact"><span class="k">Data</span><span class="v">10 a 12 de dez · 2027</span><span class="s">Sexta a domingo</span></div>
+    <div class="fact"><span class="k">Local</span><span class="v">Hotel do Bosque</span><span class="s">Mambucaba · Angra dos Reis, RJ</span></div>
+    <div class="fact"><span class="k">Horários</span><span class="v">Check-in 16h</span><span class="s">Check-out domingo, 12h</span></div>
+    <div class="fact"><span class="k">Investimento</span><span class="v">R$ 3.300 por casal</span><span class="s">PIX em até 12x de R$ 275</span></div>
+  </div>
+</div>
+
+
+<section class="photo-band" aria-label="Foto do hotel">
+  <div class="wrap"><figure><img src="img/aerea.jpg" alt="Vista aérea da piscina do Hotel do Bosque, à beira do rio, cercada de jardins e palmeiras" width="1080" height="608"><figcaption>Hotel do Bosque · Angra dos Reis</figcaption></figure></div>
+</section>
+
+<section class="block" id="sobre">
+  <div class="wrap two">
+    <div>
+      <div class="section-head">
+        <p class="eyebrow">O retiro</p>
+        <h2>Um fim de semana para o casamento</h2>
+      </div>
+      <div class="prose">
+        <p>Quando Cristo ocupa o centro do casamento, o amor se torna o vínculo que une marido e mulher, e a paz dele passa a guiar as decisões do lar.</p>
+        <p>O Retiro de Casais do Distrito de Santa Cruz é um tempo separado para isso. Longe da rotina, vamos adorar juntos, ouvir a Palavra, conversar a dois, celebrar e conviver com outros casais da igreja.</p>
+        <p>O retiro é aberto a todos os casais, membros ou não da Igreja Metodista.</p>
+        <div class="coord">
+          <p class="eyebrow">Coordenação</p>
+          <p><strong>William e Gisele</strong>, da Igreja Metodista Central de Santa Cruz, sob o pastoreio do Pastor Mauro Victor e da Pastora Sônia Victor.</p>
+        </div>
+      </div>
+    </div>
+    <aside class="hotel-card" aria-label="Sobre o hotel">
+      <img class="hotel-logo" src="img/hotel-logo.png" alt="Hotel do Bosque, Angra dos Reis – Paraty" width="360" height="269">
+      <p class="eyebrow">Onde vamos ficar</p>
+      <h3>Hotel do Bosque</h3>
+      <p class="addr">Rodovia BR-101, km 533, Mambucaba, Angra dos Reis (RJ), entre Angra e Paraty</p>
+      <ul class="amenities">
+        <li>Praia privativa de 3 km, com travessia de catamarã</li>
+        <li>Piscinas, saunas e piscina climatizada</li>
+        <li>Academia</li>
+        <li>Trilhas pela mata nativa</li>
+        <li>Caiaque e stand up paddle</li>
+        <li>Quadras de vôlei, tênis e beach tennis</li>
+        <li>Restaurantes e bares</li>
+      </ul>
+      <div class="rooms" aria-label="Acomodações"><span>Apartamento Standard</span><span>Apartamento Superior</span><span>Suítes</span></div>
+      <p class="small">Todos os quartos têm ar-condicionado, frigobar, TV, wi-fi e cofre. <a href="http://www.hoteldobosque.com.br/">Conheça o hotel</a></p>
+    </aside>
+  </div>
+</section>
+
+
+<section class="block alt" id="hotel">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">O lugar</p>
+      <h2>Conheçam o Hotel do Bosque</h2>
+      <p>Um eco resort entre Angra dos Reis e Paraty, com praia privativa, piscina à beira do rio e muito verde. Cliquem numa categoria para ver todas as fotos.</p>
+    </div>
+    <div class="cats" id="cats"></div>
+  </div>
+</section>
+
+<section class="block" id="incluso">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">O que está incluído</p>
+      <h2>Vocês só precisam chegar</h2>
+    </div>
+    <div class="incl">
+      <div class="incl-item"><span class="n">2</span><h3>Noites de hospedagem</h3><p>Quarto para o casal, de sexta às 16h até domingo ao meio-dia.</p></div>
+      <div class="incl-item"><span class="n">3</span><h3>Pensão completa</h3><p>Café da manhã, almoço e jantar durante todo o retiro.</p></div>
+      <div class="incl-item"><span class="n">♪</span><h3>Programação e atividades</h3><p>Cultos, festa temática, louvor e tempo livre para curtir o hotel.</p></div>
+      <div class="incl-item"><span class="n">2</span><h3>Camisas personalizadas</h3><p>Uma camisa do retiro para cada um do casal.</p></div>
+      <div class="incl-item"><span class="n">+</span><h3>Brindes</h3><p>Lembranças preparadas pela coordenação para os casais.</p></div>
+      <div class="incl-item"><span class="n">?</span><h3>Presente surpresa</h3><p>Um presente especial para o casal, revelado durante o retiro.</p></div>
+    </div>
+    <div class="notice" role="note"><strong>Evento exclusivo para casais.</strong> Não é permitido levar crianças ou filhos.</div>
+    <div class="notice" role="note"><strong>Transporte não incluído.</strong> A ida e a volta até o Hotel do Bosque são de responsabilidade de cada casal.</div>
+  </div>
+</section>
+
+<section class="block alt" id="programacao">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Programação</p>
+      <h2>Três dias juntos</h2>
+      <p>Tempo para adorar, descansar e celebrar o casamento.</p>
+    </div>
+    <div class="timeline">
+      <div class="day"><span class="w">Sexta-feira</span><span class="d">10</span><ul><li><b>16h</b>Check-in</li><li><b>19h</b>Culto de abertura</li></ul></div>
+      <div class="day"><span class="w">Sábado</span><span class="d">11</span><ul><li><b>Manhã e tarde</b>Livres para curtir o hotel</li><li><b>Noite</b>Festa temática</li></ul></div>
+      <div class="day"><span class="w">Domingo</span><span class="d">12</span><ul><li><b>Manhã</b>Culto e surpresas</li><li><b>12h</b>Check-out</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="valores">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Valores</p>
+      <h2>Investimento por casal</h2>
+      <p>O valor cobre o casal durante os três dias, com hospedagem, pensão completa e programação.</p>
+    </div>
+    <div class="price-wrap">
+      <div class="price-main">
+        <span class="k">Pacote do casal</span>
+        <span class="amount"><small>R$</small>3.300</span>
+        <p>Hospedagem para 2 pessoas, de sexta a domingo, com pensão completa, atividades, camisas personalizadas, brindes e presente surpresa. Transporte não incluído.</p>
+      </div>
+      <div class="pay-list">
+        <div class="pay featured"><h3>PIX parcelado<span class="tag">Sem juros</span></h3><p>Parcelas mensais via PIX até o retiro.</p><div class="val">12x R$ 275<small>total R$ 3.300</small></div></div>
+        <div class="pay"><h3>PIX à vista</h3><p>Pagamento único.</p><div class="val">R$ 3.300<small>sem acréscimo</small></div></div>
+        <div class="pay"><h3>Cartão de crédito</h3><p>Parcelado, com acréscimo dos juros do cartão.</p><div class="val">Consulte<small>com acréscimo</small></div></div>
+      </div>
+    </div>
+
+    <div class="policy" id="cancelamento">
+      <div class="section-head" style="margin:0">
+        <p class="eyebrow">Política de cancelamento</p>
+        <h3>Se precisarem desistir</h3>
+        <p>O retiro tem custos assumidos com antecedência, como a reserva dos quartos e a produção das camisas. Por isso o reembolso depende de quando o cancelamento é pedido. O pedido deve ser feito pelo WhatsApp da organização, e vale a data da mensagem.</p>
+      </div>
+      <div class="tiers">
+        <div class="tier t1"><span class="when">Até 7 dias após a inscrição</span><span class="pct">100%</span><p>Devolução integral do valor pago.</p></div>
+        <div class="tier t2"><span class="when">Até 10/09/2027</span><span class="pct">90%</span><p>Retenção de 10% do valor pago para custos administrativos.</p></div>
+        <div class="tier t3"><span class="when">De 11/09 a 10/11/2027</span><span class="pct">50%</span><p>Devolução de metade do valor pago.</p></div>
+        <div class="tier t4"><span class="when">A partir de 11/11/2027</span><span class="pct">Sem reembolso</span><p>A vaga pode ser transferida para outro casal.</p></div>
+      </div>
+      <ul>
+        <li><strong>Transferência de vaga:</strong> o casal pode passar a inscrição para outro casal até 30/11/2027, avisando a organização. O novo casal assume as parcelas restantes.</li>
+        <li><strong>Camisas:</strong> depois que as camisas forem para a produção, o valor delas não é devolvido, e elas ficam à disposição do casal.</li>
+        <li><strong>Parcelas em atraso:</strong> com mais de 30 dias de atraso, a organização pode liberar a vaga para a lista de espera. Os valores pagos seguem as regras acima.</li>
+        <li><strong>Prazo de devolução:</strong> o reembolso é feito por PIX em até 30 dias após o pedido.</li>
+        <li><strong>Cancelamento do evento:</strong> se o retiro for cancelado pela organização, todos os valores pagos são devolvidos.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="inscricao">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Inscrição</p>
+      <h2>Garantam a vaga de vocês</h2>
+      <p>Preencham os dados abaixo. A inscrição é enviada pelo WhatsApp para a organização, que confirma a vaga e passa os dados para pagamento.</p>
+    </div>
+    <div class="form-card">
+      <form id="form" novalidate>
+        <p class="step">1 · Dados do casal</p>
+        <div class="person">
+          <p class="person-title">Esposo</p>
+          <div class="field"><label for="esposo">Nome completo</label><input type="text" id="esposo" autocomplete="off" required><span class="err" id="esposo-err"></span></div>
+          <div class="row">
+            <div class="field"><label for="esposo-whats">WhatsApp com DDD</label><input type="tel" id="esposo-whats" class="phone" inputmode="tel" placeholder="(21) 90000-0000" required><span class="err" id="esposo-whats-err"></span></div>
+            <div class="field"><label for="esposo-camisa">Tamanho da camisa</label><select id="esposo-camisa" required><option value="">Selecione</option><option>PP</option><option>P</option><option>M</option><option>G</option><option>GG</option><option>XG</option><option>XGG</option></select><span class="err" id="esposo-camisa-err"></span></div>
+          </div>
+          <div class="field"><label for="esposo-rede">Rede social <span class="opt">(se possuir)</span></label><input type="text" id="esposo-rede" placeholder="@usuario no Instagram"></div>
+        </div>
+        <div class="person">
+          <p class="person-title">Esposa</p>
+          <div class="field"><label for="esposa">Nome completo</label><input type="text" id="esposa" autocomplete="off" required><span class="err" id="esposa-err"></span></div>
+          <div class="row">
+            <div class="field"><label for="esposa-whats">WhatsApp com DDD</label><input type="tel" id="esposa-whats" class="phone" inputmode="tel" placeholder="(21) 90000-0000" required><span class="err" id="esposa-whats-err"></span></div>
+            <div class="field"><label for="esposa-camisa">Tamanho da camisa</label><select id="esposa-camisa" required><option value="">Selecione</option><option>PP</option><option>P</option><option>M</option><option>G</option><option>GG</option><option>XG</option><option>XGG</option></select><span class="err" id="esposa-camisa-err"></span></div>
+          </div>
+          <div class="field"><label for="esposa-rede">Rede social <span class="opt">(se possuir)</span></label><input type="text" id="esposa-rede" placeholder="@usuario no Instagram"></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="casamento">Data do casamento</label><input type="date" id="casamento" min="1940-01-01" max="2027-12-10" required><span class="err" id="casamento-err"></span></div>
+          <div class="field"><label for="email">E-mail <span class="opt">(opcional)</span></label><input type="email" id="email" placeholder="nome@email.com"></div>
+        </div>
+        <div class="field"><label for="igreja">Igreja local</label><input type="text" id="igreja" placeholder="Ex.: Igreja Metodista Central de Santa Cruz" required><span class="err" id="igreja-err"></span></div>
+        <fieldset>
+          <legend class="legend">Vocês têm filhos?</legend>
+          <div class="inline-choices">
+            <label class="choice"><input type="radio" name="filhos" value="Não" checked><span><b>Não</b></span></label>
+            <label class="choice"><input type="radio" name="filhos" value="Sim"><span><b>Sim</b></span></label>
+            <div class="field qtd" id="qtd-wrap" hidden><label for="filhos-qtd">Quantos?</label><input type="text" id="filhos-qtd" inputmode="numeric" maxlength="2" placeholder="Ex.: 2"></div>
+          </div>
+          <span class="small">Só para conhecermos os casais. Os filhos não participam do retiro.</span>
+        </fieldset>
+
+        <p class="step">2 · Hospedagem e pagamento</p>
+        <div class="field"><label for="quarto">Preferência de acomodação <span class="opt">(sujeita à disponibilidade)</span></label>
+          <select id="quarto"><option>Sem preferência</option><option>Apartamento Standard</option><option>Apartamento Superior</option><option>Suíte</option></select>
+        </div>
+        <fieldset>
+          <legend class="legend">Forma de pagamento</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="pag" value="PIX parcelado em 12x de R$ 275,00" checked><span><b>PIX em 12x de R$ 275</b><span>Sem juros, parcelas mensais</span></span></label>
+            <label class="choice"><input type="radio" name="pag" value="PIX à vista (R$ 3.300,00)"><span><b>PIX à vista</b><span>R$ 3.300 em pagamento único</span></span></label>
+            <label class="choice"><input type="radio" name="pag" value="Cartão de crédito (com juros do cartão)"><span><b>Cartão de crédito</b><span>Parcelado, com acréscimo dos juros</span></span></label>
+          </div>
+        </fieldset>
+        <label class="choice agree" for="aceite"><input type="checkbox" id="aceite"><span><b>Li e concordo com a <a href="#cancelamento">política de cancelamento</a>.</b><span class="err" id="aceite-err"></span></span></label>
+        <div class="field"><label for="obs">Observações <span class="opt">(restrição alimentar, necessidade especial etc.)</span></label><textarea id="obs" maxlength="300"></textarea><span class="counter" id="count">0/300</span></div>
+      </form>
+
+      <aside class="preview" aria-labelledby="prev-title">
+        <h3 id="prev-title">Mensagem que será enviada</h3>
+        <div class="msg" id="msg" aria-live="polite"></div>
+        <div class="actions">
+          <a class="btn btn-gold" id="send" href="https://wa.me/5521964086023">Enviar inscrição pelo WhatsApp</a>
+          <button class="btn btn-ghost" id="copy" type="button">Copiar mensagem</button>
+          <p class="status" id="status" role="status"></p>
+        </div>
+        <p class="small">A mensagem vai para o WhatsApp da organização, com a Gisele: <strong>(21) 96408-6023</strong>. Se o aplicativo não abrir, copiem a mensagem e enviem para esse número. A vaga só fica garantida depois da confirmação da organização.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="duvidas">
+  <div class="wrap">
+    <div class="section-head"><p class="eyebrow">Dúvidas</p><h2>Perguntas frequentes</h2><p>Não encontrou a resposta? Fale com a Gisele pelo WhatsApp: <a href="https://wa.me/5521964086023?text=Ol%C3%A1%2C%20Gisele!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20Retiro%20de%20Casais%202027.">(21) 96408-6023</a>.</p></div>
+    <div class="faq">
+      <details><summary>Podemos levar nossos filhos?</summary><p>Não. O retiro é exclusivo para casais, e não é permitido levar crianças ou filhos.</p></details>
+      <details><summary>Como sei que a inscrição foi confirmada?</summary><p>Depois de enviar a mensagem, a organização responde pelo WhatsApp com a confirmação da vaga e os dados para pagamento.</p></details>
+      <details><summary>Como funciona o PIX em 12x?</summary><p>São 12 parcelas mensais de R$ 275,00 via PIX, sem juros. A organização informa as datas de vencimento na confirmação.</p></details>
+      <details><summary>Posso escolher o tipo de quarto?</summary><p>Vocês podem indicar uma preferência na inscrição. A distribuição dos quartos depende da disponibilidade do hotel e é feita pela organização.</p></details>
+      <details><summary>E se precisarmos cancelar?</summary><p>O reembolso depende da data do pedido: 100% até 7 dias após a inscrição, 90% até 10/09/2027, 50% de 11/09 a 10/11/2027, e sem reembolso a partir de 11/11/2027, quando a vaga pode ser transferida para outro casal. Vejam a <a href="#cancelamento">política completa</a>.</p></details>
+      <details><summary>O transporte está incluído?</summary><p>Não. O transporte até o Hotel do Bosque, em Angra dos Reis, é de responsabilidade de cada casal.</p></details>
+      <details><summary>O que o valor inclui?</summary><p>Duas noites de hospedagem, pensão completa, programação e atividades, camisas personalizadas para o casal, brindes e um presente surpresa.</p></details>
+      <details><summary>Quem organiza o retiro?</summary><p>A coordenação é de William e Gisele, da Igreja Metodista Central de Santa Cruz, sob o pastoreio do Pastor Mauro Victor e da Pastora Sônia Victor.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="lightbox" id="lb" hidden role="dialog" aria-modal="true" aria-label="Foto ampliada">
+  <div class="lb-top"><span class="cat" id="lb-cat"></span><button class="lb-btn" id="lb-close" type="button" aria-label="Fechar">×</button></div>
+  <div class="lb-stage">
+    <img id="lb-img" alt="">
+    <button class="lb-btn lb-prev" id="lb-prev" type="button" aria-label="Foto anterior">‹</button>
+    <button class="lb-btn lb-next" id="lb-next" type="button" aria-label="Próxima foto">›</button>
+  </div>
+  <div class="lb-bottom"><span class="c" id="lb-cap"></span><span class="n" id="lb-n"></span></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div><img class="foot-logo" src="data:image/png;base64,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" alt="Igreja Metodista" width="40" height="69"><p class="big">Até que Ele seja o Centro</p><p>Retiro de Casais 2027 · Igreja Metodista · Distrito de Santa Cruz</p><p>Coordenação: William e Gisele · Igreja Metodista Central de Santa Cruz</p></div>
+    <div><h4>Local</h4><p>Hotel do Bosque<br>BR-101, km 533, Mambucaba<br>Angra dos Reis (RJ)</p></div>
+    <div><h4>Informações e inscrições</h4><p>WhatsApp com a Gisele<br><a href="https://wa.me/5521964086023?text=Ol%C3%A1%2C%20Gisele!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20Retiro%20de%20Casais%202027.">(21) 96408-6023</a></p></div>
+    <p class="fine">10 a 12 de dezembro de 2027 · Check-in sexta às 16h · Check-out domingo às 12h</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Cordão de três dobras: três ondas defasadas em 120°
+  var svg = document.getElementById('braid');
+  var colors = ['#B08D62', '#C9A39A', '#3E332C'];
+  for (var k = 0; k < 3; k++) {
+    var d = '';
+    for (var x = 0; x <= 420; x += 3) {
+      var y = 23 + 13 * Math.sin(x / 26 + k * 2.094);
+      d += (x === 0 ? 'M' : 'L') + x + ' ' + y.toFixed(2) + ' ';
+    }
+    var p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    p.setAttribute('d', d); p.setAttribute('fill', 'none');
+    p.setAttribute('stroke', colors[k]); p.setAttribute('stroke-width', '1.6');
+    p.setAttribute('stroke-linecap', 'round');
+    svg.appendChild(p);
+  }
+
+  var NUM = '5521964086023';
+  var $ = function (id) { return document.getElementById(id); };
+  var fields = ['esposo', 'esposo-whats', 'esposo-camisa', 'esposo-rede', 'esposa', 'esposa-whats', 'esposa-camisa', 'esposa-rede', 'casamento', 'email', 'igreja', 'filhos-qtd', 'quarto', 'obs', 'aceite'];
+
+  document.querySelectorAll('.phone').forEach(function (el) {
+    el.addEventListener('input', function (e) {
+      var v = e.target.value.replace(/\D/g, '').slice(0, 11);
+      var out = v;
+      if (v.length > 2) out = '(' + v.slice(0, 2) + ') ' + v.slice(2);
+      if (v.length > 7) out = '(' + v.slice(0, 2) + ') ' + v.slice(2, v.length - 4) + '-' + v.slice(-4);
+      e.target.value = out;
+    });
+  });
+  $('filhos-qtd').addEventListener('input', function (e) { e.target.value = e.target.value.replace(/\D/g, ''); });
+  document.querySelectorAll('input[name=filhos]').forEach(function (r) {
+    r.addEventListener('change', function () { $('qtd-wrap').hidden = filhos() !== 'Sim'; update(); });
+  });
+
+  function val(id) { return $(id).value.trim(); }
+  function pag() { var r = document.querySelector('input[name=pag]:checked'); return r ? r.value : ''; }
+  function filhos() { var r = document.querySelector('input[name=filhos]:checked'); return r ? r.value : ''; }
+  function dataBR(v) { if (!v) return ''; var p = v.split('-'); return p[2] + '/' + p[1] + '/' + p[0]; }
+
+  function build() {
+    var L = [
+      '*Inscrição · Retiro de Casais 2027*',
+      'Hotel do Bosque · 10 a 12/12/2027',
+      '',
+      '*ESPOSO*',
+      'Nome: ' + (val('esposo') || '—'),
+      'WhatsApp: ' + (val('esposo-whats') || '—'),
+      'Camisa: ' + (val('esposo-camisa') || '—')
+    ];
+    if (val('esposo-rede')) L.push('Rede social: ' + val('esposo-rede'));
+    L.push('', '*ESPOSA*', 'Nome: ' + (val('esposa') || '—'), 'WhatsApp: ' + (val('esposa-whats') || '—'), 'Camisa: ' + (val('esposa-camisa') || '—'));
+    if (val('esposa-rede')) L.push('Rede social: ' + val('esposa-rede'));
+    L.push('', '*CASAL*', 'Data do casamento: ' + (dataBR(val('casamento')) || '—'));
+    L.push('Filhos: ' + filhos() + (filhos() === 'Sim' && val('filhos-qtd') ? ' (' + val('filhos-qtd') + ')' : ''));
+    if (val('email')) L.push('E-mail: ' + val('email'));
+    L.push('Igreja local: ' + (val('igreja') || '—'));
+    L.push('Acomodação (preferência): ' + val('quarto'));
+    L.push('Pagamento: ' + pag());
+    L.push('Valor: R$ 3.300,00 por casal');
+    L.push('Política de cancelamento: ' + ($('aceite').checked ? 'li e concordo' : '—'));
+    if (val('obs')) L.push('', 'Observações: ' + val('obs'));
+    return L.join('\n');
+  }
+
+  function update() {
+    var m = build();
+    $('msg').textContent = m;
+    $('send').href = 'https://wa.me/' + NUM + '?text=' + encodeURIComponent(m);
+    $('count').textContent = $('obs').value.length + '/300';
+  }
+
+  function validate() {
+    var ok = true;
+    var tel = function (id) { return val(id).replace(/\D/g, '').length >= 10; };
+    var rules = [
+      ['esposo', val('esposo').length >= 3, 'Informe o nome do esposo.'],
+      ['esposo-whats', tel('esposo-whats'), 'Informe o WhatsApp do esposo com DDD.'],
+      ['esposo-camisa', !!val('esposo-camisa'), 'Escolha o tamanho da camisa.'],
+      ['esposa', val('esposa').length >= 3, 'Informe o nome da esposa.'],
+      ['esposa-whats', tel('esposa-whats'), 'Informe o WhatsApp da esposa com DDD.'],
+      ['esposa-camisa', !!val('esposa-camisa'), 'Escolha o tamanho da camisa.'],
+      ['casamento', !!val('casamento'), 'Informe a data do casamento.'],
+      ['igreja', val('igreja').length >= 3, 'Informe a igreja local.'],
+      ['aceite', $('aceite').checked, 'Confirmem a leitura da política de cancelamento.']
+    ];
+    rules.forEach(function (r) {
+      var id = r[0], good = r[1];
+      if (id !== 'aceite') $(id).parentNode.classList.toggle('invalid', !good);
+      $(id + '-err').textContent = good ? '' : r[2];
+      if (!good && ok) { $(id).focus(); ok = false; }
+    });
+    return ok;
+  }
+
+  fields.forEach(function (id) { $(id).addEventListener('input', update); $(id).addEventListener('change', update); });
+  document.querySelectorAll('input[name=pag]').forEach(function (r) { r.addEventListener('change', update); });
+  $('aceite').addEventListener('change', function () { if ($('aceite').checked) $('aceite-err').textContent = ''; });
+  $('form').addEventListener('submit', function (e) { e.preventDefault(); });
+
+  $('send').addEventListener('click', function (e) {
+    if (!validate()) { e.preventDefault(); $('status').textContent = ''; return; }
+    update();
+    $('status').textContent = 'Abrindo o WhatsApp. Se não abrir, use "Copiar mensagem".';
+  });
+
+  $('copy').addEventListener('click', function () {
+    if (!validate()) return;
+    var m = build();
+    try {
+      navigator.clipboard.writeText(m).then(function () {
+        $('status').textContent = 'Mensagem copiada. Cole no WhatsApp (21) 96408-6023.';
+      }, function () { $('status').textContent = 'Não foi possível copiar. Selecione o texto da mensagem e copie manualmente.'; });
+    } catch (err) { $('status').textContent = 'Não foi possível copiar. Selecione o texto da mensagem e copie manualmente.'; }
+  });
+
+  update();
+})();
+</script>
+
+<script>
+(function () {
+  // Para adicionar fotos: inclua uma linha nesta lista com a categoria certa.
+  var CATS = ["O Hotel", "Contato com a natureza", "Apartamentos e suítes", "Bares e gastronomia", "Eventos"];
+  var PHOTOS = [
+    { src: 'img/g/hotel-01.jpg', thumb: 'img/t/hotel-01.jpg', cat: "O Hotel", cap: "Entrada e alameda de palmeiras" },
+    { src: 'img/g/hotel-02.jpg', thumb: 'img/t/hotel-02.jpg', cat: "O Hotel", cap: "Recepção" },
+    { src: 'img/g/hotel-03.jpg', thumb: 'img/t/hotel-03.jpg', cat: "O Hotel", cap: "Sala de estar" },
+    { src: 'img/g/hotel-04.jpg', thumb: 'img/t/hotel-04.jpg', cat: "O Hotel", cap: "Varanda de convivência" },
+    { src: 'img/g/hotel-05.jpg', thumb: 'img/t/hotel-05.jpg', cat: "O Hotel", cap: "Corredor dos apartamentos" },
+    { src: 'img/g/hotel-06.jpg', thumb: 'img/t/hotel-06.jpg', cat: "O Hotel", cap: "Piscina à noite" },
+    { src: 'img/g/hotel-07.jpg', thumb: 'img/t/hotel-07.jpg', cat: "O Hotel", cap: "Vista aérea da piscina" },
+    { src: 'img/g/hotel-08.jpg', thumb: 'img/t/hotel-08.jpg', cat: "O Hotel", cap: "Piscina e quiosques" },
+    { src: 'img/g/hotel-09.jpg', thumb: 'img/t/hotel-09.jpg', cat: "O Hotel", cap: "Piscina" },
+    { src: 'img/g/hotel-10.jpg', thumb: 'img/t/hotel-10.jpg', cat: "O Hotel", cap: "Piscina" },
+    { src: 'img/g/hotel-11.jpg', thumb: 'img/t/hotel-11.jpg', cat: "O Hotel", cap: "Piscina climatizada" },
+    { src: 'img/g/hotel-12.jpg', thumb: 'img/t/hotel-12.jpg', cat: "O Hotel", cap: "Academia" },
+    { src: 'img/g/hotel-13.jpg', thumb: 'img/t/hotel-13.jpg', cat: "O Hotel", cap: "Vista aérea do hotel e do rio" },
+    { src: 'img/g/hotel-14.jpg', thumb: 'img/t/hotel-14.jpg', cat: "O Hotel", cap: "Piscina e hotel" },
+    { src: 'img/g/hotel-15.jpg', thumb: 'img/t/hotel-15.jpg', cat: "O Hotel", cap: "Quadra de tênis" },
+    { src: 'img/g/natureza-01.jpg', thumb: 'img/t/natureza-01.jpg', cat: "Contato com a natureza", cap: "Gansos à beira do rio" },
+    { src: 'img/g/natureza-02.jpg', thumb: 'img/t/natureza-02.jpg', cat: "Contato com a natureza", cap: "Jardins" },
+    { src: 'img/g/natureza-03.jpg', thumb: 'img/t/natureza-03.jpg', cat: "Contato com a natureza", cap: "Gansos" },
+    { src: 'img/g/natureza-04.jpg', thumb: 'img/t/natureza-04.jpg', cat: "Contato com a natureza", cap: "Pavão" },
+    { src: 'img/g/natureza-05.jpg', thumb: 'img/t/natureza-05.jpg', cat: "Contato com a natureza", cap: "Pássaros" },
+    { src: 'img/g/natureza-06.jpg', thumb: 'img/t/natureza-06.jpg', cat: "Contato com a natureza", cap: "Praia privativa" },
+    { src: 'img/g/natureza-07.jpg', thumb: 'img/t/natureza-07.jpg', cat: "Contato com a natureza", cap: "Travessia de catamarã" },
+    { src: 'img/g/natureza-08.jpg', thumb: 'img/t/natureza-08.jpg', cat: "Contato com a natureza", cap: "Alameda das palmeiras" },
+    { src: 'img/g/aptos-01.jpg', thumb: 'img/t/aptos-01.jpg', cat: "Apartamentos e suítes", cap: "Apto Coral (bloco 2) · Banheiro" },
+    { src: 'img/g/aptos-02.jpg', thumb: 'img/t/aptos-02.jpg', cat: "Apartamentos e suítes", cap: "Apto Coral (bloco 2) · Quarto" },
+    { src: 'img/g/aptos-03.jpg', thumb: 'img/t/aptos-03.jpg', cat: "Apartamentos e suítes", cap: "Apto Coral (bloco 2) · Sala e copa" },
+    { src: 'img/g/aptos-04.jpg', thumb: 'img/t/aptos-04.jpg', cat: "Apartamentos e suítes", cap: "Apto Cristal (bloco 2) · Sala e copa" },
+    { src: 'img/g/aptos-05.jpg', thumb: 'img/t/aptos-05.jpg', cat: "Apartamentos e suítes", cap: "Apto Pérola (bloco 2) · Quarto" },
+    { src: 'img/g/aptos-06.jpg', thumb: 'img/t/aptos-06.jpg', cat: "Apartamentos e suítes", cap: "Apto Pérola (bloco 2) · Sala e copa" },
+    { src: 'img/g/aptos-07.jpg', thumb: 'img/t/aptos-07.jpg', cat: "Apartamentos e suítes", cap: "Apto Pérola (bloco 2) · Suíte" },
+    { src: 'img/g/aptos-08.jpg', thumb: 'img/t/aptos-08.jpg', cat: "Apartamentos e suítes", cap: "Apto Pérola (bloco 2) · Varanda" },
+    { src: 'img/g/aptos-09.jpg', thumb: 'img/t/aptos-09.jpg', cat: "Apartamentos e suítes", cap: "Apto Coral (bloco 3) · Banheiro" },
+    { src: 'img/g/aptos-10.jpg', thumb: 'img/t/aptos-10.jpg', cat: "Apartamentos e suítes", cap: "Apto Coral (bloco 3) · Quarto" },
+    { src: 'img/g/aptos-11.jpg', thumb: 'img/t/aptos-11.jpg', cat: "Apartamentos e suítes", cap: "Apto Coral (bloco 3) · Quarto" },
+    { src: 'img/g/aptos-12.jpg', thumb: 'img/t/aptos-12.jpg', cat: "Apartamentos e suítes", cap: "Apto Coral (bloco 3) · Sala e copa" },
+    { src: 'img/g/aptos-13.jpg', thumb: 'img/t/aptos-13.jpg', cat: "Apartamentos e suítes", cap: "Apto Coral (bloco 3) · Sala e copa" },
+    { src: 'img/g/aptos-14.jpg', thumb: 'img/t/aptos-14.jpg', cat: "Apartamentos e suítes", cap: "Apto Pérola (bloco 3) · Banheiro" },
+    { src: 'img/g/aptos-15.jpg', thumb: 'img/t/aptos-15.jpg', cat: "Apartamentos e suítes", cap: "Apto Pérola (bloco 3) · Quarto" },
+    { src: 'img/g/aptos-16.jpg', thumb: 'img/t/aptos-16.jpg', cat: "Apartamentos e suítes", cap: "Apto Pérola (bloco 3) · Quarto" },
+    { src: 'img/g/aptos-17.jpg', thumb: 'img/t/aptos-17.jpg', cat: "Apartamentos e suítes", cap: "Apto Pérola (bloco 3) · Sala e copa" },
+    { src: 'img/g/aptos-18.jpg', thumb: 'img/t/aptos-18.jpg', cat: "Apartamentos e suítes", cap: "Apto Pérola (bloco 3) · Sala e copa" },
+    { src: 'img/g/aptos-19.jpg', thumb: 'img/t/aptos-19.jpg', cat: "Apartamentos e suítes", cap: "Apto Pérola (bloco 3) · Suíte" },
+    { src: 'img/g/aptos-20.jpg', thumb: 'img/t/aptos-20.jpg', cat: "Apartamentos e suítes", cap: "Standard · Banheiro" },
+    { src: 'img/g/aptos-21.jpg', thumb: 'img/t/aptos-21.jpg', cat: "Apartamentos e suítes", cap: "Standard · Quarto" },
+    { src: 'img/g/aptos-22.jpg', thumb: 'img/t/aptos-22.jpg', cat: "Apartamentos e suítes", cap: "Standard · Quarto" },
+    { src: 'img/g/aptos-23.jpg', thumb: 'img/t/aptos-23.jpg', cat: "Apartamentos e suítes", cap: "Standard · Corredor" },
+    { src: 'img/g/aptos-24.jpg', thumb: 'img/t/aptos-24.jpg', cat: "Apartamentos e suítes", cap: "Superior · Quarto" },
+    { src: 'img/g/aptos-25.jpg', thumb: 'img/t/aptos-25.jpg', cat: "Apartamentos e suítes", cap: "Superior · Quarto" },
+    { src: 'img/g/aptos-26.jpg', thumb: 'img/t/aptos-26.jpg', cat: "Apartamentos e suítes", cap: "Superior · Varanda" },
+    { src: 'img/g/aptos-27.jpg', thumb: 'img/t/aptos-27.jpg', cat: "Apartamentos e suítes", cap: "Superior · Varanda" },
+    { src: 'img/g/aptos-28.jpg', thumb: 'img/t/aptos-28.jpg', cat: "Apartamentos e suítes", cap: "Superior · Banheiro" },
+    { src: 'img/g/aptos-29.jpg', thumb: 'img/t/aptos-29.jpg', cat: "Apartamentos e suítes", cap: "Suíte" },
+    { src: 'img/g/aptos-30.jpg', thumb: 'img/t/aptos-30.jpg', cat: "Apartamentos e suítes", cap: "Suíte" },
+    { src: 'img/g/aptos-31.jpg', thumb: 'img/t/aptos-31.jpg', cat: "Apartamentos e suítes", cap: "Suíte · Banheira" },
+    { src: 'img/g/aptos-32.jpg', thumb: 'img/t/aptos-32.jpg', cat: "Apartamentos e suítes", cap: "Suíte · Varanda com vista" },
+    { src: 'img/g/aptos-33.jpg', thumb: 'img/t/aptos-33.jpg', cat: "Apartamentos e suítes", cap: "Suíte · Banheiro" },
+    { src: 'img/g/aptos-34.jpg', thumb: 'img/t/aptos-34.jpg', cat: "Apartamentos e suítes", cap: "Chalés" },
+    { src: 'img/g/gastronomia-01.jpg', thumb: 'img/t/gastronomia-01.jpg', cat: "Bares e gastronomia", cap: "Restaurante" },
+    { src: 'img/g/gastronomia-02.jpg', thumb: 'img/t/gastronomia-02.jpg', cat: "Bares e gastronomia", cap: "Restaurante" },
+    { src: 'img/g/gastronomia-03.jpg', thumb: 'img/t/gastronomia-03.jpg', cat: "Bares e gastronomia", cap: "Prato do restaurante" },
+    { src: 'img/g/gastronomia-04.jpg', thumb: 'img/t/gastronomia-04.jpg', cat: "Bares e gastronomia", cap: "Salada" },
+    { src: 'img/g/gastronomia-05.jpg', thumb: 'img/t/gastronomia-05.jpg', cat: "Bares e gastronomia", cap: "Prato do restaurante" },
+    { src: 'img/g/gastronomia-06.jpg', thumb: 'img/t/gastronomia-06.jpg', cat: "Bares e gastronomia", cap: "Prato do restaurante" },
+    { src: 'img/g/gastronomia-07.jpg', thumb: 'img/t/gastronomia-07.jpg', cat: "Bares e gastronomia", cap: "Mesa posta" },
+    { src: 'img/g/gastronomia-08.jpg', thumb: 'img/t/gastronomia-08.jpg', cat: "Bares e gastronomia", cap: "Drink" },
+    { src: 'img/g/gastronomia-09.jpg', thumb: 'img/t/gastronomia-09.jpg', cat: "Bares e gastronomia", cap: "Bar" },
+    { src: 'img/g/gastronomia-10.jpg', thumb: 'img/t/gastronomia-10.jpg', cat: "Bares e gastronomia", cap: "Prato do restaurante" },
+    { src: 'img/g/gastronomia-11.jpg', thumb: 'img/t/gastronomia-11.jpg', cat: "Bares e gastronomia", cap: "Chef do restaurante" },
+    { src: 'img/g/gastronomia-12.jpg', thumb: 'img/t/gastronomia-12.jpg', cat: "Bares e gastronomia", cap: "Jantar" },
+    { src: 'img/g/gastronomia-13.jpg', thumb: 'img/t/gastronomia-13.jpg', cat: "Bares e gastronomia", cap: "Atendimento" },
+    { src: 'img/g/gastronomia-14.jpg', thumb: 'img/t/gastronomia-14.jpg', cat: "Bares e gastronomia", cap: "Bar da piscina" },
+    { src: 'img/g/gastronomia-15.jpg', thumb: 'img/t/gastronomia-15.jpg', cat: "Bares e gastronomia", cap: "Bar da piscina à noite" },
+    { src: 'img/g/gastronomia-16.jpg', thumb: 'img/t/gastronomia-16.jpg', cat: "Bares e gastronomia", cap: "Lounge do bar" },
+    { src: 'img/g/gastronomia-17.jpg', thumb: 'img/t/gastronomia-17.jpg', cat: "Bares e gastronomia", cap: "Jantar no bar da piscina" },
+    { src: 'img/g/gastronomia-18.jpg', thumb: 'img/t/gastronomia-18.jpg', cat: "Bares e gastronomia", cap: "Pizzaria" },
+    { src: 'img/g/gastronomia-19.jpg', thumb: 'img/t/gastronomia-19.jpg', cat: "Bares e gastronomia", cap: "Mesa de sobremesas" },
+    { src: 'img/g/gastronomia-20.jpg', thumb: 'img/t/gastronomia-20.jpg', cat: "Bares e gastronomia", cap: "Tenda do restaurante" },
+    { src: 'img/g/eventos-01.jpg', thumb: 'img/t/eventos-01.jpg', cat: "Eventos", cap: "Salão decorado para evento" },
+    { src: 'img/g/eventos-02.jpg', thumb: 'img/t/eventos-02.jpg', cat: "Eventos", cap: "Salão decorado para evento" },
+    { src: 'img/g/eventos-03.jpg', thumb: 'img/t/eventos-03.jpg', cat: "Eventos", cap: "Lounge para festa" },
+    { src: 'img/g/eventos-04.jpg', thumb: 'img/t/eventos-04.jpg', cat: "Eventos", cap: "Jantar ao ar livre" },
+    { src: 'img/g/eventos-05.jpg', thumb: 'img/t/eventos-05.jpg', cat: "Eventos", cap: "Jantar ao ar livre" },
+    { src: 'img/g/eventos-06.jpg', thumb: 'img/t/eventos-06.jpg', cat: "Eventos", cap: "Salão de convenções" }
+  ];
+  var COVERS = { 'O Hotel': 'hotel-09.jpg', 'Contato com a natureza': 'natureza-04.jpg', 'Apartamentos e suítes': 'aptos-25.jpg', 'Bares e gastronomia': 'gastronomia-15.jpg', 'Eventos': 'eventos-04.jpg' };
+  var cats = document.getElementById('cats');
+  var lb = document.getElementById('lb'), img = document.getElementById('lb-img');
+  var set = [], idx = 0, lastFocus = null;
+
+  function render() {
+    CATS.forEach(function (c) {
+      var items = PHOTOS.filter(function (p) { return p.cat === c; });
+      var b = document.createElement('button');
+      b.className = 'cat-card'; b.type = 'button';
+      b.setAttribute('aria-label', 'Ver as ' + items.length + ' fotos de ' + c);
+      b.innerHTML = '<img loading="lazy" alt=""><span class="t"><b></b><span></span></span>';
+      b.querySelector('img').src = 'img/t/' + (COVERS[c] || items[0].src.split('/').pop());
+      b.querySelector('b').textContent = c;
+      b.querySelector('.t span').textContent = items.length + ' fotos';
+      b.onclick = function () { open(items[0]); };
+      cats.appendChild(b);
+    });
+  }
+  function show() {
+    var p = set[idx];
+    img.src = p.src; img.alt = p.cap;
+    document.getElementById('lb-cat').textContent = p.cat;
+    document.getElementById('lb-cap').textContent = p.cap;
+    document.getElementById('lb-n').textContent = (idx + 1) + ' de ' + set.length;
+    if (set.length > 1) { new Image().src = set[(idx + 1) % set.length].src; }
+    var multi = set.length > 1;
+    document.getElementById('lb-prev').hidden = !multi; document.getElementById('lb-next').hidden = !multi;
+  }
+  function open(p) {
+    set = PHOTOS.filter(function (q) { return q.cat === p.cat; });
+    idx = set.indexOf(p); lastFocus = document.activeElement;
+    lb.hidden = false; document.body.classList.add('lb-open'); show();
+    document.getElementById('lb-close').focus();
+  }
+  function close() { lb.hidden = true; document.body.classList.remove('lb-open'); if (lastFocus) lastFocus.focus(); }
+  function step(d) { idx = (idx + d + set.length) % set.length; show(); }
+  document.getElementById('lb-prev').onclick = function () { step(-1); };
+  document.getElementById('lb-next').onclick = function () { step(1); };
+  document.getElementById('lb-close').onclick = close;
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lb-stage')) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowRight') step(1);
+    if (e.key === 'ArrowLeft') step(-1);
+  });
+  var x0 = null;
+  lb.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', function (e) {
+    if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
+  });
+  render();
+})();
+</script>
+</body>
+</html>
